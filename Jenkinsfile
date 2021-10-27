@@ -38,7 +38,7 @@ pipeline {
                 branch "main"
             }
             steps {
-                sh 'sh cd ansible-jobs'
+                
                 sh 'ls'   
                 sh 'sh cd ansible-jobs'
                 sh 'sh ls'
