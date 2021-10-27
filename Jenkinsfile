@@ -24,20 +24,16 @@ pipeline {
                 }
         }  
 
-        
-
-        stage('CREATE PROD APP 2') {
+        stage('CREATE PROD APP') {
              when {
                 branch "main"
             }
             steps {
-                
-                sh 'ls'   
-                sh 'sh cd ansible-jobs'
-                sh 'sh ls'
-                sh 'sh ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playprod.yml -i inventory/hosts/ec2.py -vvvvv'   
+                sh 'sh scripts/playbook.sh'      
             }
         } 
+
+        
     }
 }
 
