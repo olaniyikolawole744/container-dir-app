@@ -15,7 +15,7 @@ pipeline {
            }
         } 
 
-        stage('PLAY ANSIBLE BOOK') {
+        stage('CREATE DEV APP') {
              when {
                 branch "develop"
             }
@@ -24,7 +24,7 @@ pipeline {
                 }
         }  
 
-        stage('PLAY ANSIBLE BOOK') {
+        stage('CREATE PROD APP') {
              when {
                 branch "main"
             }
