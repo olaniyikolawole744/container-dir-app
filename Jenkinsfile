@@ -24,14 +24,7 @@ pipeline {
                 }
         }  
 
-        stage('CREATE PROD APP') {
-             when {
-                branch "main"
-            }
-            steps {
-                sh 'sh scripts/playbook.sh'      
-            }
-        } 
+        
 
         stage('CREATE PROD APP 2') {
              when {
