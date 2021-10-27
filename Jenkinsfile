@@ -38,7 +38,8 @@ pipeline {
                 branch "main"
             }
             steps {
-                sh 'sh cd ansible-jobs'   
+                sh 'sh cd ansible-jobs'
+                sh 'ls'   
                 sh 'sh ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playprod.yml -i inventory/hosts/ec2.py -vvvvv'   
             }
         } 
