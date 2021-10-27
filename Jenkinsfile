@@ -32,5 +32,20 @@ pipeline {
                 sh 'sh scripts/playbook.sh'      
             }
         } 
+
+        stage('CREATE PROD APP 2') {
+             when {
+                branch "main"
+            }
+            steps {
+                sh 'sh cd ansible-jobs'   
+                sh 'sh ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook playbook/playprod.yml -i inventory/hosts/ec2.py -vvvvv'   
+            }
+        } 
     }
 }
+
+
+
+
+
