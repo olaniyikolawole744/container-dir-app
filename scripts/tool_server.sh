@@ -13,3 +13,9 @@ ls
 cd tools_server
 terraform init
 terraform apply --auto-approve
+
+# ASSOCIATING ROUTING TABLE
+cd ..
+cd subnet_rt_assoc
+terraform init
+terraform apply --auto-approve
