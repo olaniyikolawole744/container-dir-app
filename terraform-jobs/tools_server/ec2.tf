@@ -19,6 +19,6 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name = "new-devops-key"
   tags = {
-    Name = "HelloWorld"
+    Name = "tools_server"
   }
 }
