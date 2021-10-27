@@ -1,5 +1,7 @@
 #!/bin/bash
+ls
 cd terraform-jobs
+ls
 cd create_servers
 ls
 terraform init
