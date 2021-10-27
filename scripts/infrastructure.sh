@@ -1,5 +1,4 @@
 #!/bin/bash
-cd ..
 cd terraform-jobs
 cd create_servers
 ls

@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 3.27"
+      #version = "~> 3.27"
     }
   }
 
@@ -19,6 +19,6 @@ resource "aws_instance" "web" {
   instance_type = "t2.micro"
   key_name = "new-devops-key"
   tags = {
-    Name = "tools_server"
+    Name = "new_jenkins_tools_server"
   }
 }
