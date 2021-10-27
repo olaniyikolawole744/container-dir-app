@@ -27,7 +27,7 @@ pipeline {
 
         stage('PLAY ANSIBLE BOOK') {
              when {
-                branch "master"
+                branch "main"
             }
             steps {
                 sh 'sh playprod.sh'      
