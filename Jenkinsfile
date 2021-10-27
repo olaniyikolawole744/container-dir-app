@@ -10,9 +10,8 @@ pipeline {
     stages {
         
         stage('BUILD INFRASTRUCTURE') {
-            steps {
-                cd 
-                 sh 'sh infrastructure.sh'
+            steps { 
+                 sh 'sh scripts/infrastructure.sh'
            }
         } 
 
