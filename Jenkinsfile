@@ -29,7 +29,7 @@ pipeline {
                 branch "main"
             }
             steps {
-                sh 'sh playprod.sh'      
+                sh 'sh scripts/playbook.sh'      
             }
         } 
     }
