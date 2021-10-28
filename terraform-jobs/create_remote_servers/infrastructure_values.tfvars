@@ -1,5 +1,5 @@
 # EC2 INSTANCE ARGUMENT VALUES
-ami_values                  = ["golden_image_ami","golden_image_ami"]
+ami_values                  = ["golden_image_ami222","golden_image_ami222"]
 instance_type               = "t2.micro"
 key_name                    = "new-devops-key"
 server_name_list                 = ["dev","prod"]

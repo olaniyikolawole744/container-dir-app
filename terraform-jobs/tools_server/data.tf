@@ -3,7 +3,7 @@ data "aws_ami" "server_ami" {
 
   filter {
     name   = "name"
-    values = ["golden_image_ami"]
+    values = ["golden_image_ami222"]
   }
 
   filter {
@@ -12,4 +12,8 @@ data "aws_ami" "server_ami" {
   }
 
   owners = ["self"]
+}
+
+data "template_file" "bootstrap_file" {
+  template = file("${path.module}/${"bootstrap"}.sh")
 }

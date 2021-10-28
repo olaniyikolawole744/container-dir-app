@@ -16,11 +16,17 @@ provider "aws" {
 resource "aws_instance" "tool_server" {
   ami           = data.aws_ami.server_ami.id
   instance_type = var.instance_type
-  key_name = var.pem_key
+  key_name      = var.pem_key
+  user_data     = data.template_file.bootstrap_file.template
+  
   tags = {
     Name = var.tool_server_tag_name
   }
 }
+
+
+
+
 
 output "ec2_instance_ip" {
     value = aws_instance.tool_server.public_ip
