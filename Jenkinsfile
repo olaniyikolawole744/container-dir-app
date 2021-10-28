@@ -2,10 +2,9 @@ pipeline {
     agent any
 
     environment {
-        ANSIBLE_VAULT_PASSWORD_FILE = credentials ('DOCKERHUBKEY')
+        ANSIBLE_VAULT_PASSWORD_FILE = credentials ('VAULT_ID')
         ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
         EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
-        FILE = 'secret.txt'
         
     }
 
@@ -22,7 +21,7 @@ pipeline {
                 branch "develop"
             }
             steps {
-                sh 'sh playdev.sh'      
+                sh 'sh scripts/playbook.sh'      
                 }
         }  
 
@@ -31,7 +30,6 @@ pipeline {
                 branch "main"
             }
             steps {
-                sh "echo '${VAULT_CREDS_PSW}' > secret.txt"
                 sh 'sh scripts/playbook.sh'      
             }
         } 
