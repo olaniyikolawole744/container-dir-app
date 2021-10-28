@@ -12,7 +12,7 @@ pipeline {
         
         stage('BUILD INFRASTRUCTURE') {
             steps { 
-                 sh 'sh scripts/infrastructure.sh'
+                 sh 'sh scripts/create_infrastructure.sh'
            }
         } 
 
