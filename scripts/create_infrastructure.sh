@@ -1,5 +1,6 @@
 #!/bin/bash
 ls
+echo "creating infrastructure ........................................"
 cd terraform-jobs || exit
 cd create_remote_servers || exit
 terraform init
