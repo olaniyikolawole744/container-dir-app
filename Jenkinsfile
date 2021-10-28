@@ -5,6 +5,7 @@ pipeline {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('DOCKERHUBKEY')
         ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
         EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
+        FILE = 'secret.txt'
     }
 
     stages {
