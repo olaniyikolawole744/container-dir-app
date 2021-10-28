@@ -32,9 +32,7 @@ pipeline {
             steps {
                 sh 'sh scripts/playbook.sh'      
             }
-        } 
-
-        
+        }   
     }
 }
 
