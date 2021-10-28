@@ -6,6 +6,7 @@ pipeline {
         ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
         EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
         FILE = 'secret.txt'
+        VAULT_CREDS = credentials ("${VAULT_ID}")
     }
 
     stages {
@@ -30,6 +31,7 @@ pipeline {
                 branch "main"
             }
             steps {
+                sh "echo '${VAULT_CREDS_PSW}' > secret.txt"
                 sh 'sh scripts/playbook.sh'      
             }
         } 
