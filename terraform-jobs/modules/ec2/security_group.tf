@@ -1,9 +1,6 @@
 resource "aws_security_group" "sg_template" {
-  name        = "${var.name}_security_group"
+  name        = "${var.server_name}_security_group"
   description = "Allow TLS inbound traffic"
-  #vpc_id      = aws_vpc.exp_vpc.id
-  #vpc_id = output.vpc_id.value
-  #vpc_id = var.vpc_id
   vpc_id = data.aws_vpc.server_vpc.id
 
   ingress {

@@ -2,7 +2,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      #version = "~> 3.27"
+      version = "~> 3.27"
     }
   }
 
@@ -11,14 +11,17 @@ terraform {
 
 provider "aws" {
   profile = "default"
-  region  = "us-east-1"
+  region  = var.region
+}
+resource "aws_instance" "tool_server" {
+  ami           = data.aws_ami.server_ami.id
+  instance_type = var.instance_type
+  key_name = var.pem_key
+  tags = {
+    Name = var.tool_server_tag_name
+  }
 }
 
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.server_ami.id
-  instance_type = "t2.micro"
-  key_name = "new-devops-key"
-  tags = {
-    Name = "new_jenkins_tools_server"
-  }
+output "ec2_instance_ip" {
+    value = aws_instance.tool_server.public_ip
 }

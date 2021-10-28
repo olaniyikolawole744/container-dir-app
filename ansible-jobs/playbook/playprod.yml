@@ -15,7 +15,7 @@
       - name: STARTING DOCKER
         ansible.builtin.shell: sudo systemctl start docker
 
-      - name: COPY APP NODE TO REMOTE SERVER
+      - name: COPY APP CODE TO REMOTE SERVER
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /tmp/project
@@ -46,5 +46,5 @@
           source: pull
           repository: registry.hub.docker.com/olaniyikolawole744/direction-prod
 
-      - name: RUN APP IMAGE TO CREATE CONTAINER
+      - name: RUN APP APP CONTAINER
         ansible.builtin.shell: sudo  docker run -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-prod:latest

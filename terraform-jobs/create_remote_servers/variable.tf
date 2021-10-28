@@ -14,24 +14,20 @@ variable "instance_type" {}
 
 variable "key_name" {}
 
-#variable "user_data" {}
-
-variable "server_name" {
+variable "server_name_list" {
     type = list
     default = []
 }
 
-variable name {}
+variable server_name {}
 
-variable "role" {}
+variable "server_role" {}
 
-variable "environment" {}
+variable "server_environment" {}
 
 # SECURITY_GROUP VARIABLES
 variable "from_port" {}
-
 variable "to_port" {}
-
 variable "from_port2" {
     default = []
 }
@@ -39,14 +35,12 @@ variable "from_port2" {
 variable "to_port2" {
     default = []
 }
-
 variable "protocol" {}
 
 # SUBNET VARIABLES
 variable "public_subnet_cidr_block" {
     default = []
 }
-
 variable "availability_zone_marker" {
     default = []
 }

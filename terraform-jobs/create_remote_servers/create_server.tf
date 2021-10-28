@@ -21,9 +21,9 @@ module "servers" {
   server_amis                = var.ami_values[count.index]
   instance_type              = var.instance_type
   key_name                   = var.key_name
-  name                       = var.server_name[count.index]
-  role                       = var.role
-  environment                = var.environment
+  server_name                = var.server_name_list[count.index]
+  server_role                = var.server_role
+  server_environment         = var.server_environment
   from_port                  = var.from_port
   to_port                    = var.to_port
   from_port2                 = var.from_port2[count.index]

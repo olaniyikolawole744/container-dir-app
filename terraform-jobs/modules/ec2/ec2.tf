@@ -6,10 +6,8 @@ resource "aws_instance" "web" {
 
   associate_public_ip_address = true
 
-  #iam_instance_profile = aws_iam_instance_profile.test_profile.name
   iam_instance_profile = data.aws_iam_instance_profile.master_server_iam_profile.name
   
-
   key_name = var.key_name
 
   vpc_security_group_ids = [aws_security_group.sg_template.id]
@@ -17,8 +15,8 @@ resource "aws_instance" "web" {
   subnet_id = aws_subnet.public_subnet.id
 
   tags = {
-    Name = "${var.name}_server"
-    Role = var.role
-    Environment = var.environment
+    Name = "${var.server_name}_server"
+    Role = var.server_role
+    Environment = var.server_environment
   }
 }

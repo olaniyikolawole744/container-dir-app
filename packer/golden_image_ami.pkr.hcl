@@ -33,7 +33,7 @@ build {
   sources = ["source.amazon-ebs.golden_image_ami"]
 
   provisioner "shell" {
-    script = "user.sh"
+    script = "createuserandsshkey.sh"
   }
 
   provisioner "shell" {

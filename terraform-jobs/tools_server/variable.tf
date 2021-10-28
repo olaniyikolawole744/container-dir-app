@@ -1,0 +1,4 @@
+variable region {}
+variable pem_key {}
+variable tool_server_tag_name {}
+variable instance_type {}

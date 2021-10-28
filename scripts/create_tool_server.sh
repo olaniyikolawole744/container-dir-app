@@ -1,21 +1,20 @@
 #!/bin/bash
+
 # CREATE VPC
 cd ..
-cd terraform-jobs
-cd vpc
-ls
+cd terraform-jobs || exit 
+cd vpc || exit 
 terraform init
 terraform apply --auto-approve
 
 # CREATE TOOL SERVER
 cd ..
-ls
-cd tools_server
+cd tools_server || exit
 terraform init
-terraform apply --auto-approve
+terraform apply "-var-file=variable_values.tfvars" --auto-approve
 
 # ASSOCIATING ROUTING TABLE
 cd ..
-cd subnet_rt_assoc
+cd subnet_rt_assoc || exit
 terraform init
 terraform apply --auto-approve

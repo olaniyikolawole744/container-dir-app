@@ -15,7 +15,7 @@
       - name: Starting Docker
         ansible.builtin.shell: sudo systemctl start docker
 
-      - name: Clone repo on servers
+      - name: Download App Code
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /tmp/project
@@ -28,7 +28,7 @@
           password: "{{ dockerhubpassword }}"
           reauthorize: yes
 
-      - name: Build and Push Image to DockerHub
+      - name: Build and Push App Image to DockerHub
         docker_image:
           build:
             path: /tmp/project/code
@@ -39,12 +39,12 @@
           name: registry.hub.docker.com/olaniyikolawole744/direction-dev
           tag: latest
 
-      - name: pull dir_app image from docker hub
+      - name: Pull App Image from Docker Hub
         docker_image:
           name: olaniyikolawole744/direction-dev
           tag: latest
           source: pull
           repository: registry.hub.docker.com/olaniyikolawole744/direction-dev
 
-      - name: Create container from command line
+      - name: Create App Container on Remote Server
         ansible.builtin.shell: sudo  docker run -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-dev:latest
