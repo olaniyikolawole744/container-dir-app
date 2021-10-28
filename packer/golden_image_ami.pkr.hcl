@@ -16,7 +16,7 @@ variable "region" {
   sensitive = true
 }
 
-source "amazon-ebs" "golden_image_ami" {
+source "amazon-ebs" "golden_image_ami222" {
   tags = {
     Name = "golden_image_ami222"
   }
@@ -30,7 +30,7 @@ source "amazon-ebs" "golden_image_ami" {
 }
 
 build {
-  sources = ["source.amazon-ebs.golden_image_ami"]
+  sources = ["source.amazon-ebs.golden_image_ami222"]
 
   provisioner "shell" {
     script = "create_user_and_ssh_key.sh"

@@ -3,7 +3,7 @@ data "aws_ami" "server_ami" {
 
   filter {
     name   = "name"
-    values = ["golden_image_ami222"]
+    values = ["golden_image_ami"]
   }
 
   filter {
