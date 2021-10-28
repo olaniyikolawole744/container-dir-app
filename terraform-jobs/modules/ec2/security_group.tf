@@ -27,6 +27,6 @@ resource "aws_security_group" "sg_template" {
     }
   
   tags = {
-    Name = "${var.name}_security_group"
+    Name = "${var.server_name}_security_group"
   }
 }
