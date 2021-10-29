@@ -2,9 +2,9 @@
 ami_values                  = ["golden_image_ami222","golden_image_ami222"]
 instance_type               = "t2.micro"
 key_name                    = "new-devops-key"
-server_name_list                 = ["dev","prod"]
-server_role                        = "dir_app"
-server_environment                 = "prod"
+server_name_list            = ["dev","prod"]
+server_role                 = "dir_app"
+server_environment          = "prod"
 name_list_index             = ""
 server_name                        = ""
 server_amis                 = ""
