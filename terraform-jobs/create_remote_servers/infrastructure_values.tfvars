@@ -6,7 +6,7 @@ server_name_list            = ["dev","prod"]
 server_role                 = "dir_app"
 server_environment          = "prod"
 name_list_index             = ""
-server_name                        = ""
+server_name                 = ""
 server_amis                 = ""
 
 # SECURITY GROUP ARGUMENT VALUES
