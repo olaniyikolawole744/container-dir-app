@@ -15,5 +15,5 @@ data "aws_ami" "server_ami" {
 }
 
 data "template_file" "bootstrap_file" {
-  template = file("${path.module}/${"bootstrap"}.sh")
+  template = file("${path.module}/${"bootstrap"}.txt")
 }
