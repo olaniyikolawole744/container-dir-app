@@ -5,8 +5,6 @@ pipeline {
         ANSIBLE_VAULT_PASSWORD_FILE = credentials ('VAULT_ID')
         ANSIBLE_HOSTS="ansible-jobs/inventory/ec2.py"
         EC2_INI_PATH="ansible-jobs/inventory/ec2.ini"
-        chmod 755 inventory/hosts/ec2.py
-        chmod 755 inventory/hosts/ec2.ini
     }
 
     stages {

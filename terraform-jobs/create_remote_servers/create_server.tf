@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 module "servers" {
-  count = length(var.server_name)
+  count = length(var.server_name_list)
   source = "../modules/ec2"
 
   server_amis                = var.ami_values[count.index]
