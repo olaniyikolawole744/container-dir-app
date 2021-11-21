@@ -37,5 +37,3 @@ data "aws_iam_role" "master_server_iam_role" {
 data "aws_iam_instance_profile" "master_server_iam_profile" {
   name = "test_role"
 }
-
-
