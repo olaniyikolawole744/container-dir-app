@@ -11,10 +11,10 @@ pipeline {
 
         stage('CREATE VPC') {
             steps { 
-                 sh 'sh scripts/create_infrastructure.sh'
+                 sh 'sh scripts/create_vpc.sh'
            }
         }         
-        
+
         stage('CREATE SERVERS') {
             steps { 
                  sh 'sh scripts/create_infrastructure.sh'
