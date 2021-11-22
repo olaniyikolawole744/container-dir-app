@@ -21,7 +21,7 @@ pipeline {
            }
         } 
 
-        stage('CREATE DEV APP') {
+        stage('DEPLOY DIRECTION APP ON DEV SERVER') {
              when {
                 branch "develop"
             }
@@ -30,7 +30,7 @@ pipeline {
                 }
         }  
 
-        stage('CREATE PROD APP') {
+        stage('DEPLOY DIRECTION APP ON PROD SERVER') {
              when {
                 branch "main"
             }
