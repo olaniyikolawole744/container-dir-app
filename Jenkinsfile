@@ -8,8 +8,14 @@ pipeline {
     }
 
     stages {
+
+        stage('CREATE VPC') {
+            steps { 
+                 sh 'sh scripts/create_infrastructure.sh'
+           }
+        }         
         
-        stage('BUILD INFRASTRUCTURE') {
+        stage('CREATE SERVERS') {
             steps { 
                  sh 'sh scripts/create_infrastructure.sh'
            }
