@@ -4,7 +4,7 @@
     become: yes
     gather_facts: yes
     tasks:
-      - name: WRITE WELCOME MESSAGE TO DEV SERVER      
+      - name: WROTE WELCOME MESSAGE TO DEV SERVER      
         ansible.builtin.template:
           src: welcome_message.j2
           dest: /etc/profile.d/welcome_message.sh
@@ -12,24 +12,23 @@
           group: root
           mode: '0644'
 
-      - name: STARTING DOCKER ON DEV SERVER
+      - name: STARTED DOCKER ENGINE ON DEV SERVER
         ansible.builtin.shell: sudo systemctl start docker
 
-      - name: PULL APP CODE FROM GITHUB
-      
+      - name: CLONED DIRECTION APP CODE FROM GITHUB DEV BRANCH
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /tmp/project
           separate_git_dir: /tmp/projectbakup2
 
-      - name: LOG INTO DOCKERHUB
+      - name: LOGGED INTO DOCKERHUB
         docker_login:
           registry_url: https://registry.hub.docker.com
           username: "{{ dockerhubusername }}"
           password: "{{ dockerhubpassword }}"
           reauthorize: yes
 
-      - name: BUILD AND PUSH APP IMAGE TO DOCKERHUB
+      - name: BUILT DIRECTION APP IMAGE FOR DEV SERVER AND PUSH IMAGE TO DOCKERHUB
         docker_image:
           build:
             path: /tmp/project/code
@@ -40,7 +39,7 @@
           name: registry.hub.docker.com/olaniyikolawole744/direction-dev
           tag: 1.0
 
-      - name: PULL APP IMAGE FROM DOCKERHUB
+      - name: PULL DIRECTION APP IMAGE FROM DOCKERHUB
         docker_image:
           name: olaniyikolawole744/direction-dev
           tag: 1.0

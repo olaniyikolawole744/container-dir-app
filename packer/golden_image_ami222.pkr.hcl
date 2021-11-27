@@ -16,21 +16,21 @@ variable "region" {
   sensitive = true
 }
 
-source "amazon-ebs" "golden_image_ami" {
+source "amazon-ebs" "golden_image_ami222" {
   tags = {
-    Name = "golden_image_ami"
+    Name = "golden_image_ami222"
   }
-  access_key    = "${var.access_key}"
-  secret_key    = "${var.secret_key}"
+  #access_key    = "${var.access_key}"  ### blank out for docker
+  #secret_key    = "${var.secret_key}"  ### blank our for docker
   region        = "${var.region}"
   ssh_username  = "ec2-user"
-  ami_name      = "golden_image_ami"
+  ami_name      = "golden_image_ami222"
   source_ami    = "ami-02e136e904f3da870"
   instance_type = "t2.micro"
 }
 
 build {
-  sources = ["source.amazon-ebs.golden_image_ami"]
+  sources = ["source.amazon-ebs.golden_image_ami222"]
 
   provisioner "shell" {
     script = "create_user_and_ssh_key.sh"
@@ -41,7 +41,7 @@ build {
   }
 
   provisioner "shell" {
-    script = "golden_image_packages.sh"
+    script = "golden_image_packages222.sh"
   }
 
   provisioner "shell" {

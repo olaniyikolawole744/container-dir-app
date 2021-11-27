@@ -9,19 +9,19 @@ pipeline {
 
     stages {
 
-        stage('CREATE VPC.') {
+        stage('CREATE VPC') {
             steps { 
                  sh 'sh scripts/create_vpc.sh'
            }
         }         
 
-        stage('CREATE SERVERS.') {
+        stage('CREATE SERVERS') {
             steps { 
                  sh 'sh scripts/create_infrastructure.sh'
            }
         } 
 
-        stage('DEPLOY DIRECTION APP ON DEV SERVER.') {
+        stage('DEPLOY DIRECTION APP ON DEV SERVER') {
              when {
                 branch "develop"
             }
@@ -30,7 +30,7 @@ pipeline {
                 }
         }  
 
-        stage('DEPLOY DIRECTION APP ON PROD SERVER.') {
+        stage('DEPLOY DIRECTION APP ON PROD SERVER') {
              when {
                 branch "main"
             }
