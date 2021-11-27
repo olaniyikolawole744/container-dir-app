@@ -9,7 +9,7 @@ pipeline {
 
     stages {
 
-        stage('CREATE VPC') {
+        stage('CREATE VPC.') {
             steps { 
                  sh 'sh scripts/create_vpc.sh'
            }
