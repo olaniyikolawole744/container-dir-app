@@ -4,7 +4,7 @@
     become: yes
     gather_facts: yes
     tasks:
-      - name: Write welcome message profile.d file
+      - name: WELCOME MESSAGE WRITTEN TO PROD SERVER
         ansible.builtin.template:
           src: welcome_message.j2
           dest: /etc/profile.d/welcome_message.sh
@@ -12,10 +12,10 @@
           group: root
           mode: '0644'
 
-      - name: STARTING DOCKER
+      - name: DOCKER STARTED
         ansible.builtin.shell: sudo systemctl start docker
 
-      - name: COPY APP CODE TO REMOTE SERVER
+      - name: DIRECTION APP CODE CLONED FROM GITHUB MAIN BRANCH
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /tmp/project
@@ -28,7 +28,7 @@
           password: "{{ dockerhubpassword }}"
           reauthorize: yes
 
-      - name: BUILD AND PUSH APP IMAGE TO DOCKERHUB
+      - name: BUILD DIRECTION APP IMAGE FOR PROD SERVER AND PUSH IMAGE TO DOCKERHUB
         docker_image:
           build:
             path: /tmp/project/code
@@ -37,14 +37,14 @@
           source: build
           push: yes
           name: registry.hub.docker.com/olaniyikolawole744/direction-prod
-          tag: latest
+          tag: 1.0
 
-      - name: PULL APP IMAGE FROM DOCKERHUB
+      - name: PULL PROD DIRECTION APP FROM DOCKERHUB
         docker_image:
           name: olaniyikolawole744/direction-prod
-          tag: latest
+          tag: 1.0
           source: pull
           repository: registry.hub.docker.com/olaniyikolawole744/direction-prod
 
-      - name: RUN APP APP CONTAINER
+      - name: CREATE DIRECTION APP CONTAINER ON PROD SERVER
         ansible.builtin.shell: sudo  docker run -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-prod:latest

@@ -4,7 +4,7 @@
     become: yes
     gather_facts: yes
     tasks:
-      - name: Write welcome message profile.d file
+      - name: WRITE WELCOME MESSAGE TO DEV SERVER      
         ansible.builtin.template:
           src: welcome_message.j2
           dest: /etc/profile.d/welcome_message.sh
@@ -12,23 +12,24 @@
           group: root
           mode: '0644'
 
-      - name: Starting Docker
+      - name: STARTING DOCKER ON DEV SERVER
         ansible.builtin.shell: sudo systemctl start docker
 
-      - name: Download App Code
+      - name: PULL APP CODE FROM GITHUB
+      
         ansible.builtin.git:
           repo: https://github.com/olaniyikolawole744/devops-penultimante-project.git
           dest: /tmp/project
           separate_git_dir: /tmp/projectbakup2
 
-      - name: Log into DockerHub
+      - name: LOG INTO DOCKERHUB
         docker_login:
           registry_url: https://registry.hub.docker.com
           username: "{{ dockerhubusername }}"
           password: "{{ dockerhubpassword }}"
           reauthorize: yes
 
-      - name: Build and Push App Image to DockerHub
+      - name: BUILD AND PUSH APP IMAGE TO DOCKERHUB
         docker_image:
           build:
             path: /tmp/project/code
@@ -37,14 +38,14 @@
           source: build
           push: yes
           name: registry.hub.docker.com/olaniyikolawole744/direction-dev
-          tag: latest
+          tag: 1.0
 
-      - name: Pull App Image from Docker Hub
+      - name: PULL APP IMAGE FROM DOCKERHUB
         docker_image:
           name: olaniyikolawole744/direction-dev
-          tag: latest
+          tag: 1.0
           source: pull
           repository: registry.hub.docker.com/olaniyikolawole744/direction-dev
 
-      - name: Create App Container on Remote Server
+      - name: DEPLOY APP ON DEV SERVER
         ansible.builtin.shell: sudo  docker run -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-dev:latest
