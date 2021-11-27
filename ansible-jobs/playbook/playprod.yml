@@ -47,4 +47,4 @@
 #          repository: registry.hub.docker.com/olaniyikolawole744/direction-prod
 
       - name: DEPLOY DIRECTION APP CONTAINER ON PROD SERVER
-        ansible.builtin.shell: sudo  docker run --name direction-prod:2.0 -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-prod:2.0
+        ansible.builtin.shell: sudo  docker run --name direction-prod:2 -d -p 8080:8080 -e loginname=myname -e loginpass=mypass -e api_key=*****  olaniyikolawole744/direction-prod:2.0
