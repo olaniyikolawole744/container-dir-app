@@ -25,7 +25,7 @@ source "amazon-ebs" "golden_image_ami222" {
   region        = "${var.region}"
   ssh_username  = "ec2-user"
   ami_name      = "golden_image_ami222"
-  source_ami    = "ami-02e136e904f3da870"
+  source_ami    = "ami-04902260ca3d33422"
   instance_type = "t2.micro"
 }
 
@@ -44,8 +44,8 @@ build {
     script = "golden_image_packages222.sh"
   }
 
-  provisioner "shell" {
-    script = "environment_variables.sh"
-  }
+  #provisioner "shell" {
+   # script = "environment_variables.sh"
+  #}
 }
 
