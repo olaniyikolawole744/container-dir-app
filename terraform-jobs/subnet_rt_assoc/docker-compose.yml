@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  terraform:
+    image: hashicorp/terrform:light
+    volumes:
+      - .:/infra
+    working_dir: /infra
+    env_file:
+      - .env
+    
