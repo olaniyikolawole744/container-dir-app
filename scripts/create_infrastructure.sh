@@ -1,7 +1,7 @@
 #!/bin/bash
 ls
 cd terraform-jobs
-cd create_remote_servers
+cd remote_servers
 terraform init
 terraform apply "-var-file=infrastructure_values.tfvars" --auto-approve
 
