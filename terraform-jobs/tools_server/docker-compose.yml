@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   terraform:
-    image: hashicorp/terraform:light
+    image: hashicorp/terraform:0.14.10
       #0.14.10
     volumes:
       - .:/infra
