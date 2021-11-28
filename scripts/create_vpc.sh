@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # CREATE VPC
-ls
 cd terraform-jobs
 cd infrastructure_vpc
-terraform init
-terraform apply --auto-approve
+ls
+docker compose -f docker-compose.yml run --rm terraform init
+docker compose -f docker-compose.yml run --rm terraform apply --auto-approve
