@@ -9,4 +9,4 @@ cd ..
 cd subnet_rt_assoc
 ls
 terraform init
-terraform apply "-var-file=variable_values.tfvars" --auto-approve
+terraform apply --auto-approve
