@@ -9,13 +9,13 @@ pipeline {
 
     stages {
 
-        stage('CREATE VPC.................................') {
+        stage('CREATE VPC') {
             steps { 
                  sh 'sh scripts/create_vpc.sh'
            }
         }         
 
-        stage('CREATE SERVERS') {
+        stage('CREATE REMOTE SERVERS') {
             steps { 
                  sh 'sh scripts/create_infrastructure.sh'
            }
