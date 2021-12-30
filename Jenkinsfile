@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('LIST OUT FILES') {
+        stage('LIST OUT FILES.....') {
             steps { 
                  sh 'ls'
            }
