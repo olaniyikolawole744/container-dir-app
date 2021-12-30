@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('CREATE REMOTE SERVERS') {
             steps { 
-                SH 'ls'
+                sh 'ls'
                  docker 'build -t dir-app .'
                  docker 'run  --env-file $AWS_CREDENTIALS  dir-app'
            }
