@@ -2,3 +2,6 @@
 terraform*
 Dockerfile
 .env
+aws_cred_file
+docker-compose.yml
+docker-compose.yml*

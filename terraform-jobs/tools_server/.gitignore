@@ -2,3 +2,4 @@
 terraform*
 Dockerfile
 .env
+aws_cred_file

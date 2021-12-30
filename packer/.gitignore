@@ -1,3 +1,4 @@
 *environment_variables.sh*
 Dockerfile
 .env
+aws_cred_file

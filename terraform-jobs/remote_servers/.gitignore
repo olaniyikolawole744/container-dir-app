@@ -1,3 +1,5 @@
 .terraform*
 terraform*
 .env
+aws_cred_file
+docker-compose.yml
