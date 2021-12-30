@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('CREATE REMOTE SERVERS.') {
+        stage('CREATE REMOTE SERVERS') {
             steps { 
                  sh 'ls'
                  docker 'build -t dir-app .'
