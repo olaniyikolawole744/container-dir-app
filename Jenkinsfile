@@ -9,11 +9,21 @@ pipeline {
     }
 
     stages {
-        stage('CREATE REMOTE SERVERS') {
+        stage('LIST OUT FILES') {
             steps { 
                  sh 'ls'
-                 docker 'build -t dir-app .'
-                 docker 'run  --env-file $AWS_CREDENTIALS  dir-app'
+           }
+        } 
+
+        stage('BUILD IMAGE') {
+            steps { 
+                sh 'docker build -t dir-app .'
+           }
+        } 
+
+        stage('CREATE CONTAINER') {
+            steps { 
+                sh 'docker run  --env-file $AWS_CREDENTIALS  dir-app'
            }
         } 
     }
