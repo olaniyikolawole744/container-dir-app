@@ -14,7 +14,6 @@ git --version
 python --version
 pip --version
 pip show boto
-ssh-keygen
 
 #echo "initializing configuration files........................................................"
 #packer init packer/golden_image_ami222.pkr.hcl

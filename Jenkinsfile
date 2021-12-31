@@ -17,13 +17,13 @@ pipeline {
 
         stage('BUILD IMAGE') {
             steps { 
-                sh 'docker build -t dir-app .'
+                sh 'docker pull olaniyikolawole744/dir-app2:latest'
            }
         } 
 
         stage('CREATE CONTAINER') {
             steps { 
-                sh 'docker run  --env-file $AWS_CREDENTIALS  dir-app'
+                sh 'docker run  --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app2:latest'
            }
         } 
     }
