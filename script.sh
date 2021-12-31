@@ -1,10 +1,9 @@
 #!/bin/bash
-#echo "installing softwares...................................................................."
+echo "installing softwares...................................................................."
 yum install -y yum-utils
 yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-#yum -y install packer
-#yum -y install terraform
-###yum -y install ansible
+yum -y install packer
+yum -y install terraform
 amazon-linux-extras install ansible2 -y
 yum -y git
 python -m ensurepip --upgrade
@@ -15,19 +14,19 @@ python --version
 pip --version
 pip show boto
 
-#echo "initializing configuration files........................................................"
-#packer init packer/golden_image_ami222.pkr.hcl
-#terraform -chdir=terraform-jobs/infrastructure_vpc/ init
-#terraform -chdir=terraform-jobs/remote_servers/ init
-#terraform -chdir=terraform-jobs/subnet_rt_assoc/ init
-#terraform -chdir=terraform-jobs/tools_server/ init
+echo "initializing configuration files........................................................"
+packer init packer/golden_image_ami222.pkr.hcl
+terraform -chdir=terraform-jobs/infrastructure_vpc/ init
+terraform -chdir=terraform-jobs/remote_servers/ init
+terraform -chdir=terraform-jobs/subnet_rt_assoc/ init
+terraform -chdir=terraform-jobs/tools_server/ init
 
-#echo "creating infrasctructure................................................................"
-#packer build packer/golden_image_ami222.pkr.hcl && \
-#terraform -chdir=terraform-jobs/infrastructure_vpc/ apply --auto-approve && \
-#terraform -chdir=terraform-jobs/tools_server/ apply -var-file=variable_values.tfvars --auto-approve && \
-#terraform -chdir=terraform-jobs/remote_servers/ apply -var-file=variable_values.tfvars --auto-approve && \
-#terraform -chdir=terraform-jobs/subnet_rt_assoc/ apply --auto-approve
+echo "creating infrasctructure................................................................"
+packer build packer/golden_image_ami222.pkr.hcl && \
+terraform -chdir=terraform-jobs/infrastructure_vpc/ apply --auto-approve && \
+terraform -chdir=terraform-jobs/tools_server/ apply -var-file=variable_values.tfvars --auto-approve && \
+terraform -chdir=terraform-jobs/remote_servers/ apply -var-file=variable_values.tfvars --auto-approve && \
+terraform -chdir=terraform-jobs/subnet_rt_assoc/ apply --auto-approve
 
 echo "run ansible playbook....................................................................."
 chmod 755 ansible-jobs/inventory/hosts/ec2.py
