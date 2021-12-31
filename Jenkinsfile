@@ -9,21 +9,15 @@ pipeline {
     }
 
     stages {
-        stage('LIST OUT FILES.....') {
-            steps { 
-                 sh 'ls'
-           }
-        } 
-
-        stage('BUILD IMAGE') {
+        stage('PULL DIRECTION APP IMAGE') {
             steps { 
                 sh 'docker pull olaniyikolawole744/dir-app2:latest'
            }
         } 
 
-        stage('CREATE CONTAINER') {
+        stage('CREATE DIR APP CONTAINER') {
             steps { 
-                sh 'docker run  --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app2:latest'
+                sh 'docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app2:latest'
            }
         } 
     }
