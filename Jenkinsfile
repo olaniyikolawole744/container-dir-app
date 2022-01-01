@@ -9,7 +9,7 @@ pipeline {
     }
 
     stages {
-        stage('PULL DIRECTION APP IMAGE') {
+        stage('PULL DIRECTION APP IMAGE...........') {
             steps { 
                 sh 'docker pull olaniyikolawole744/dir-app-testrun:latest'
            }
