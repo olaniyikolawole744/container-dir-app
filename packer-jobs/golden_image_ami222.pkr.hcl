@@ -1,20 +1,20 @@
-variable "access_key" {
-  type      = string
-  default   = "${env("AWS_ACCESS_KEY")}"
-  sensitive = true
-}
+#variable "access_key" {
+ # type      = string
+  #default   = "${env("AWS_ACCESS_KEY")}"
+  #sensitive = true
+#}
 
-variable "secret_key" {
-  type      = string
-  default   = "${env("AWS_SECRET_ACCESS_KEY")}"
-  sensitive = true
-}
+#variable "secret_key" {
+ # type      = string
+  #default   = "${env("AWS_SECRET_ACCESS_KEY")}"
+  #sensitive = true
+#}
 
-variable "region" {
-  type      = string
-  default   = "us-east-1"
-  sensitive = true
-}
+#variable "region" {
+ # type      = string
+  #default   = "us-east-1"
+  #sensitive = true
+#}
 
 source "amazon-ebs" "golden_image_ami222" {
   tags = {
@@ -34,15 +34,15 @@ build {
   sources = ["source.amazon-ebs.golden_image_ami222"]
 
   provisioner "shell" {
-    script = "packer/create_user_and_ssh_key.sh"
+    script = "packer-jobs/create_user_and_ssh_key.sh"
   }
 
   provisioner "shell" {
-    script = "packer/golden_image_dependencies.sh"
+    script = "packer-jobs/golden_image_dependencies.sh"
   }
 
   provisioner "shell" {
-    script = "packer/golden_image_packages222.sh"
+    script = "packer-jobs/golden_image_packages222.sh"
   }
 
   #provisioner "shell" {
