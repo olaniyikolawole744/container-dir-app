@@ -11,14 +11,14 @@ pipeline {
     stages {
         stage('PULL DIRECTION APP IMAGE...........') {
             steps { 
-                sh 'docker pull olaniyikolawole744/dir-app:runansible2'
+                sh 'docker pull olaniyikolawole744/dir-app:runansible3'
 
            }
         } 
 
         stage('CREATE DIR APP CONTAINER') {
             steps { 
-                sh 'docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app:runansible2 '
+                sh 'docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app:runansible3 '
 
            }
         } 
