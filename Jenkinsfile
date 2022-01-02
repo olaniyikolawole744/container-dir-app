@@ -11,7 +11,8 @@ pipeline {
     stages {
         stage('PULL DIRECTION APP IMAGE...........') {
             steps { 
-                sh 'docker pull olaniyikolawole744/dir-app-testrun:latest'
+                sh 'docker pull olaniyikolawole744/dir-app-testrun:latest && \
+                docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app-testrun:latest'
            }
         } 
 
