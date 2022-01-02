@@ -11,15 +11,16 @@ pipeline {
     stages {
         stage('PULL DIRECTION APP IMAGE...........') {
             steps { 
-                sh 'docker pull olaniyikolawole744/dir-app:runansible3'
+                sh 'docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app:runansible3 '
 
            }
         } 
 
         stage('CREATE DIR APP CONTAINER') {
             steps { 
-                sh 'docker run --env-file $AWS_CREDENTIALS  olaniyikolawole744/dir-app:runansible3 '
-
+                sh 'git clone https://github.com/olaniyikolawole744/container-dir-app.git'
+                sh 'chmod 755 ansiblescript.sh'
+                sh './ansiblescript.sh'
            }
         } 
     }
